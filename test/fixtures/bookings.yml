@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2022-11-15 15:24:18
+  no_of_people: 1
+  occassion: MyString
+  user: one
+
+two:
+  date: 2022-11-15 15:24:18
+  no_of_people: 1
+  occassion: MyString
+  user: two
