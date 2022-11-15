@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sitting_capacity: 1
+  booking: one
+
+two:
+  sitting_capacity: 1
+  booking: two
