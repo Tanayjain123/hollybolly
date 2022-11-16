@@ -8,24 +8,23 @@ class User < ApplicationRecord
   has_many :products, through: :cart
   has_many :products, through: :orders
 
-
+  has_secure_password
+  enum role: {user: 0, admin: 1 }
   enum gender: { male: 0, female: 1, Others: 2 }
 
-  validates :password_digest, presence: true,
-                       length: { minimum: 8 }
+  #validates :password_digest, presence: true,
+                       #length: { minimum: 6 }
 
-  validates :email, presence: true,format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+  #validates :email, presence: true,format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
 
-  validates :name, presence: true
-  validates :address, presence: true
-  validates :conatct , presence: true, uniqueness: true,
-                        length: { is: 10 }
-
+  #validates :name, presence: true
+  #validates :address, presence: true
 
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :registerable,
          :recoverable, :rememberable, :validatable
 
 end
+

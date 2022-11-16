@@ -5,11 +5,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   before_action :configure_permitted_parameters, only: %i[create update]
 
+
+  def new
+    return redirect_to root_path if current_user.present? && params[:type].nil?
+
+    if params[:type] == 'admin'
+      @role_id = Role.admin.id
+    else
+      @role_id = Role.user.id
+    end
+    super
+  end
+
   protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(
-      :sign_up, keys: %i[name address phone_number role_id]
+      :sign_up, keys: %i[name email contact address age gender]
     )
   end
 
