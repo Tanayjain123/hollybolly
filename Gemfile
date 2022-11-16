@@ -13,7 +13,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 
 #using gem devise in holly bolly for signup and login
 gem 'devise'
-
+gem 'activeadmin'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
