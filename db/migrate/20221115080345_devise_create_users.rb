@@ -34,12 +34,11 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
 
       t.string :name
       t.string :email
-      t.integer :contact
+      t.string :contact
       t.integer :age
       t.string :address
       t.integer :gender
-      t.string :password_digest
-      t.integer :role
+      
 
       t.timestamps null: false
     end

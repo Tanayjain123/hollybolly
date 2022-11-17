@@ -8,8 +8,7 @@ class User < ApplicationRecord
   has_many :products, through: :cart
   has_many :products, through: :orders
 
-  has_secure_password
-
+  
   enum role: {user: 0, admin: 1 }
   enum gender: { male: 0, female: 1, Others: 2 }
 
@@ -24,10 +23,11 @@ class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :registerable,
-         :recoverable, :rememberable, :validatable
+  # devise :registerable,
+  #        :recoverable, :rememberable, :validatable
 
-
+  devise :database_authenticatable, :registerable, 
+     :recoverable, :rememberable, :validatable
 
 
 

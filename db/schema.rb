@@ -83,8 +83,6 @@ ActiveRecord::Schema.define(version: 20221116163634) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
     t.string   "address"
     t.integer  "order_status", default: 0
     t.integer  "user_id"
@@ -97,10 +95,10 @@ ActiveRecord::Schema.define(version: 20221116163634) do
     t.string   "name"
     t.integer  "price"
     t.string   "description"
-    t.integer  "status"
+    t.integer  "status",      default: 0
     t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
   end
 
@@ -134,12 +132,10 @@ ActiveRecord::Schema.define(version: 20221116163634) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string   "name"
-    t.integer  "contact"
+    t.string   "contact"
     t.integer  "age"
     t.string   "address"
     t.integer  "gender"
-    t.string   "password_digest"
-    t.integer  "role"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
