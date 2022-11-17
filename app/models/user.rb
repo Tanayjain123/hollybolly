@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :products, through: :orders
 
   has_secure_password
+
   enum role: {user: 0, admin: 1 }
   enum gender: { male: 0, female: 1, Others: 2 }
 
@@ -25,6 +26,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :registerable,
          :recoverable, :rememberable, :validatable
+
+
+
+
+
+
+
+
 
 end
 
