@@ -134,12 +134,10 @@ ActiveRecord::Schema.define(version: 20221116163634) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string   "name"
-    t.integer  "contact"
+    t.string   "contact"
     t.integer  "age"
     t.string   "address"
     t.integer  "gender"
-    t.string   "password_digest"
-    t.integer  "role"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree

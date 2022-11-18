@@ -1,25 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-
-
-  before_action :configure_permitted_parameters, only: %i[create update]
-
-
-
-  protected
-
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(
-      :sign_up, keys: %i[name email contact address age gender]
-    )
-  end
-
-  def sign_up_params
-    params.require(:user).permit(:name,:gender,:email,:address,:age,:contact)
-
-  end
-
+  before_action :configure_sign_up_params, only: [:create]
 
 
 
