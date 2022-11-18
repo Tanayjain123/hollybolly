@@ -10,7 +10,11 @@ class User < ApplicationRecord
 
 
 
+
   #enum role: {user: 0, admin: 1 }
+
+
+
   enum gender: { male: 0, female: 1, Others: 2 }
 
   #validates :password_digest, presence: true,
@@ -22,8 +26,16 @@ class User < ApplicationRecord
   #validates :address, presence: true
 
 
+
   devise :database_authenticatable, :registerable,
      :recoverable, :rememberable, :validatable
+
+
+
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # devise :registerable,
+  #        :recoverable, :rememberable, :validatable
 
 
 
