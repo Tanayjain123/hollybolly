@@ -8,7 +8,7 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # before_action :configure_sign_in_params, only: [:create]
-
+    skip_before_action :current_cart,only: [:new,:create]
 
   # GET /resource/sign_in
   # def new

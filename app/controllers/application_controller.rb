@@ -8,13 +8,15 @@ class ApplicationController < ActionController::Base
   before_action :current_cart
 
   def admin_only
-      unless current_user.admin
-          redirect_to users_show_path(current_user), notice: "You must be an admin to perform that function!"
-      end
+    unless current_user.admin
+      redirect_to users_show_path(current_user), notice: "You must be an admin to perform that function!"
+    end
   end
 
-private
+  private
+
   def current_cart
+    
       if session[:cart_id]
           cart = Cart.find_by(:id => session[:cart_id])
           if cart.present?
@@ -25,7 +27,7 @@ private
       end
 
       if session[:cart_id] == nil
-          @current_cart = Cart.create
+          @current_cart = Cart.create(user_id: current_user.id)
           session[:cart_id] = @current_cart.id
       end
   end

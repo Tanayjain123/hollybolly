@@ -3,18 +3,12 @@ class ReviewsController < ApplicationController
     @review = Review.all
   end
   def new
-    @user = User.find(params[:user_id])
-    @dish = Dish.find(params[:dish_id])
-    @review = @dish.reviews.new
+    @review = Review.new
   end
   def create
-    #@user = User.find(params[:user_id])
-    @dish = Dish.find(params[:dish_id])
-    @review=@dish.reviews.merge(current_user.reviews).create(review_params)
-    #@review = @user.@dish.reviews.build(review_params)
-
+    @review=Review.create(params[:id])
     if @review.save
-      redirect_to homepage_home_path(@user,@post)
+      redirect_to homepage_home_path(@review)
     else
       render 'new'
     end
@@ -22,7 +16,7 @@ class ReviewsController < ApplicationController
 
   private
    def review_params
-    params.require(:review).permit(:review,:rating)
+    params.require(:review).permit(:review,:rating,:user_id,:dish_id)
   end
 
 end

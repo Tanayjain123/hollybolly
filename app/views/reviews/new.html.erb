@@ -10,10 +10,7 @@
     </ul>
   </div>
 <% end %>
-
-
-
-<%= form_for [@user,@dish,@dish.reviews.build]  do |form| %>
+<%= form_for @review  do |form| %>
 
 <p>
     <%= form.label :review %><br>

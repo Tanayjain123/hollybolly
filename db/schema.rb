@@ -106,8 +106,6 @@ ActiveRecord::Schema.define(version: 20221121062242) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
     t.string   "address"
     t.integer  "order_status", default: 0
     t.integer  "user_id"
