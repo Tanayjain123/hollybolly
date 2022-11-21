@@ -1,0 +1,24 @@
+<div class= "hcafe"><h1>Welcome to Holly Bolly Cafe </h1></div>
+
+<nav class = "navbar">
+<ul>
+<li>
+<%= link_to 'Category' , categories_path %>
+</li>
+<li>
+<%= link_to 'Dishes' , dishes_path %>
+</li>
+<li>
+<%= link_to 'Book a table' ,user_bookings_path(@user) %>
+</li>
+<li>
+<%= link_to 'Review' ,reviews_path(@user) %>
+</li>
+<li>
+<%= link_to 'cart' , cart_path(@user) %>
+</li>
+<li>
+<%= link_to 'order' , orders_path %>
+</li>
+</ul>
+</nav>

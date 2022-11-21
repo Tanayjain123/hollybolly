@@ -1,0 +1,34 @@
+// Place all the styles related to the homepage controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.navbar{
+    background-color: darkslategray;
+    #border-radius: 10px;
+  }
+  .navbar li{
+    float:left;
+    list-style: none;
+    margin: 13px 20px;
+}
+.navbar ul{
+    overflow: auto;
+}
+.navbar li a{
+    padding: 3px 3px;
+    text-decoration: none;
+    color: black;
+}
+.navbar li a:hover{
+    color: red
+}
+.hcafe{
+    text-align: center;
+    background-color: darkslategrey;
+    padding-top: 2px;
+    padding-bottom: 2px;
+   #margin-bottom: 5px;
+   color: white;
+}
+h1 {
+    color: white;
+      }

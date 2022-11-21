@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20221116163634) do
+ActiveRecord::Schema.define(version: 20221121062242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,18 @@ ActiveRecord::Schema.define(version: 20221116163634) do
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
   end
 
+  create_table "cart_items", force: :cascade do |t|
+    t.integer  "quantity",   default: 1
+    t.integer  "order_id"
+    t.integer  "cart_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "dish_id"
+    t.index ["cart_id"], name: "index_cart_items_on_cart_id", using: :btree
+    t.index ["dish_id"], name: "index_cart_items_on_dish_id", using: :btree
+    t.index ["order_id"], name: "index_cart_items_on_order_id", using: :btree
+  end
+
   create_table "carts", force: :cascade do |t|
     t.integer  "total_amount"
     t.integer  "user_id"
@@ -73,16 +85,29 @@ ActiveRecord::Schema.define(version: 20221116163634) do
     t.index ["booking_id"], name: "index_dinning_tables_on_booking_id", using: :btree
   end
 
+  create_table "dishes", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "price"
+    t.string   "description"
+    t.integer  "status",      default: 0
+    t.integer  "category_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["category_id"], name: "index_dishes_on_category_id", using: :btree
+  end
+
   create_table "favourite_dishes", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_favourite_dishes_on_product_id", using: :btree
+    t.integer  "dish_id"
+    t.index ["dish_id"], name: "index_favourite_dishes_on_dish_id", using: :btree
     t.index ["user_id"], name: "index_favourite_dishes_on_user_id", using: :btree
   end
 
   create_table "orders", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
     t.string   "address"
     t.integer  "order_status", default: 0
     t.integer  "user_id"
@@ -91,38 +116,15 @@ ActiveRecord::Schema.define(version: 20221116163634) do
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
 
-  create_table "products", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "price"
-    t.string   "description"
-    t.integer  "status",      default: 0
-    t.integer  "category_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.index ["category_id"], name: "index_products_on_category_id", using: :btree
-  end
-
   create_table "reviews", force: :cascade do |t|
     t.string   "review"
     t.integer  "rating"
-    t.integer  "product_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_reviews_on_product_id", using: :btree
+    t.integer  "dish_id"
+    t.index ["dish_id"], name: "index_reviews_on_dish_id", using: :btree
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
-  end
-
-  create_table "user_products", force: :cascade do |t|
-    t.integer  "quantity",   default: 1
-    t.integer  "product_id"
-    t.integer  "order_id"
-    t.integer  "cart_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.index ["cart_id"], name: "index_user_products_on_cart_id", using: :btree
-    t.index ["order_id"], name: "index_user_products_on_order_id", using: :btree
-    t.index ["product_id"], name: "index_user_products_on_product_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -143,15 +145,12 @@ ActiveRecord::Schema.define(version: 20221116163634) do
   end
 
   add_foreign_key "bookings", "users"
+  add_foreign_key "cart_items", "carts"
+  add_foreign_key "cart_items", "orders"
   add_foreign_key "carts", "users"
   add_foreign_key "dinning_tables", "bookings"
-  add_foreign_key "favourite_dishes", "products"
+  add_foreign_key "dishes", "categories"
   add_foreign_key "favourite_dishes", "users"
   add_foreign_key "orders", "users"
-  add_foreign_key "products", "categories"
-  add_foreign_key "reviews", "products"
   add_foreign_key "reviews", "users"
-  add_foreign_key "user_products", "carts"
-  add_foreign_key "user_products", "orders"
-  add_foreign_key "user_products", "products"
 end

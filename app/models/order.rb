@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
   belongs_to :user
-  has_many :user_products, dependent: :destroy
-  has_many :products, through: :user_products
+  has_many :cart_items, dependent: :destroy
+  has_many :dishes, through: :cart_items
 
   enum order_status: { ready: 0, under_process: 1 }
 

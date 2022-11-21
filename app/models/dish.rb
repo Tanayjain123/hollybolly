@@ -1,7 +1,7 @@
-class Product < ApplicationRecord
+class Dish < ApplicationRecord
   belongs_to :category
   has_many :reviews
-  has_many :user_products
+  has_many :cart_items
   has_one :favourite_dish
 
 
