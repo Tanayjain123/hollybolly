@@ -8,6 +8,6 @@
 
 <% if user_signed_in?%>
     <%= button_to "Add to Cart", cart_items_path(:dish_id => @dish.id) %>
-    <%= button_to "Review Dish", reviews_path(:dish_id => @dish.id) %>
+    <%= button_to "Review Dish", new_review_path(:dish_id => @dish.id), method: :get %>
     <%= button_to "Add to favourite" , favourite_dishes_path(:dish_id => @dish.id)%>
 <% end %>
