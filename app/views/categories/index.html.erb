@@ -1,7 +1,21 @@
-<h1>Catagories#index</h1>
-<p>Find me in app/views/categories/index.html.erb</p>
-<% @category.each do |items|%>
+<h1>Available Categories </h1>
+<div class="category">
+<ul>
+<% @categories.each do |category| %>
+ <li><%= link_to category.category_name, category_path(category) %></li>
+<% end %>
+</ul>
+</div>
+<%
+=begin%>
+ <% @categories.each do |items|%>
  <p>
     <strong>menu items:</strong><%= items.category_name %> </br>
  </p>
 <%end%>
+<%
+=end%>
+
+
+
+

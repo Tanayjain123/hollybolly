@@ -1,2 +1,6 @@
 <h1>show of category</h1>
 <%  @category.category_name %>
+<% @category.dishes.each do |dish| %>
+    <p><%= link_to dish.name, category_dish_path(@category, dish) %></p>
+<% end %>
+<%= render partial: 'links', locals: {category: @category} %>

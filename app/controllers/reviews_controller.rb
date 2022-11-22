@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
     @review = Review.new
   end
   def create
+    @user = current_user.id
     @review=Review.create(params[:id])
     if @review.save
       redirect_to homepage_home_path(@review)

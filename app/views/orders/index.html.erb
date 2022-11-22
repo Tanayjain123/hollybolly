@@ -11,7 +11,7 @@
     <p>cart Items: </p>
     <ul>
     <% order.cart_items.each do |dish| %>
-        <li><%= dish.quantity %> x <%= dish.product.name %></li>
+        <li><%= dish.quantity %> x <%= dish.dish.name %></li>
     <% end %>
     </ul>
 <% end%>

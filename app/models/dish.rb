@@ -11,5 +11,8 @@ class Dish < ApplicationRecord
   validates :price, presence: true
   validates :description, presence: true
 
+  def self.by_category(category_id)
+    where(category: category_id)
+  end
 
 end

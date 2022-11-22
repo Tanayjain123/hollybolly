@@ -6,19 +6,22 @@
 <%= link_to 'Category' , categories_path %>
 </li>
 <li>
-<%= link_to 'Dishes' , dishes_path %>
+<%= link_to 'Dishes' , dishes_path(@category) %>
 </li>
 <li>
 <%= link_to 'Book a table' ,user_bookings_path(@user) %>
 </li>
 <li>
-<%= link_to 'Review' ,reviews_path(@user) %>
+<%= link_to 'Review' ,reviews_path(@user,@dish) %>
 </li>
 <li>
-<%= link_to 'cart' , cart_path(@user) %>
+<%= link_to 'Cart' , cart_path(@user) %>
 </li>
 <li>
-<%= link_to 'order' , orders_path %>
+<%= link_to 'Order History' , orders_path %>
+</li>
+<li>
+<%= link_to 'Add favourite dish' , favourite_dishes_path %>
 </li>
 </ul>
 </nav>

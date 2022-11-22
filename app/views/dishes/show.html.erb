@@ -1,1 +1,13 @@
 <h1> show of dishes </h1>
+
+<%= button_to "Back to Menu", dishes_path, method: :get %>
+<h3><%= @dish.category.category_name %></h3>
+<h4>Dish Name: <%= @dish.name %></h4>
+<h4>Price: rs<%= @dish.price %></h4>
+<p><%= @dish.description %></p>
+
+<% if user_signed_in?%>
+    <%= button_to "Add to Cart", cart_items_path(:dish_id => @dish.id) %>
+    <%= button_to "Review Dish", reviews_path(:dish_id => @dish.id) %>
+    <%= button_to "Add to favourite" , favourite_dishes_path(:dish_id => @dish.id)%>
+<% end %>

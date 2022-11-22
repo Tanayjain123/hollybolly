@@ -11,20 +11,16 @@
   </div>
 <% end %>
 <%= form_for @review  do |form| %>
-
-<p>
-    <%= form.label :review %><br>
-  <%=  form.text_field :review %>
-  </p>
-
+<% hidden_field_tag ':user_id', '@user.id', ':dish_id', '@dish.id' %>
   <p>
-    <%= form.label :Rating %><br>
+   <%= form.label :review %><br>
+   <%=  form.text_field :review %>
+  </p>
+  <p>
+   <%= form.label :Rating %><br>
    <%= form.number_field :rating %>
   </p>
-
-
-
   <p>
-    <%= form.submit %>
+   <%= form.submit %>
   </p>
 <% end %>

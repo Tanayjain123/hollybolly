@@ -19,7 +19,7 @@
     <br>
     <% end %>
 </ol>
-<h3>total: $<%= @cart.total_amount %></h3>
+<h3>sub_total: <%= @cart.sub_total %>₹</h3>
 
 
 <%= button_to "Proceed to checkout", new_order_path, method: :get %><br>
