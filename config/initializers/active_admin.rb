@@ -4,6 +4,8 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
+  config.skip_before_action :authenticate_user!
+  config.skip_before_action :current_cart
   config.site_title = "Hollybolly"
 
   # Set the link url for the title. For example, to take
