@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
     @review = Review.all
   end
   def new
+    @dish = Dish.find(params[:dish_id])
     @review = Review.new
   end
   def create

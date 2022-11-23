@@ -12,7 +12,7 @@
 <% end %>
 <%= form_for @review  do |form| %>
   <%= form.hidden_field :user_id, value: current_user.id %>
-  <%= form.hidden_field :dish_id, value: Dish.ids %>
+  <%= form.hidden_field :dish_id, value: @dish.id %>
 
   <p>
    <%= form.label :review %><br>
@@ -20,7 +20,7 @@
   </p>
   <p>
    <%= form.label :Rating %><br>
-   <%= form.number_field :rating %>
+   <%= form.number_field :rating, {min: 0, max: 5} %>
   </p>
   <p>
    <%= form.submit %>

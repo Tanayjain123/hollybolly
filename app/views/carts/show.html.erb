@@ -9,9 +9,9 @@
 <ol>
     <% @cart.cart_items.each do |cart_item| %>
     <li>Item: <%= cart_item.dish.name %></li>
-    Price: <%= number_to_currency(cart_item.dish.price) %><br>
+    Price: <%= cart_item.dish.price %> rs<br>
     Quantity: <%= cart_item.quantity %><br>
-    Total Price: <%= number_to_currency(cart_item.total_amount) %><br>
+    Total Price: <%= cart_item.total_amount %> rs<br>
 
     <%= button_to "Add one", cart_item_add_path(:id => cart_item), method: :post %>
     <%= button_to "Reduce one", cart_item_reduce_path(:id => cart_item), method: :post %>

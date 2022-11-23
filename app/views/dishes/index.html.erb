@@ -1,12 +1,16 @@
 <h1> index of dishes </h1>
 <h3>Filter Items by Category and dishes</h3>
-<div class="filter">
+<%
+=begin%>
+ <div class="filter">
 <%= form_tag("/dishes", method: "get") do %>
     <label>category</label>
     <%= select_tag "category", options_from_collection_for_select(@categories, :id, :category_name), include_blank: true %>
     <%= submit_tag "Filter"%>
 <% end %>
 </div>
+<%
+=end%>
 
 <% @dishes.each do |dish| %>
     <div>

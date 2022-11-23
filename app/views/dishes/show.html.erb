@@ -5,9 +5,15 @@
 <h4>Dish Name: <%= @dish.name %></h4>
 <h4>Price: rs<%= @dish.price %></h4>
 <p><%= @dish.description %></p>
-
+<p><%= @dish.id %></p>
 <% if user_signed_in?%>
-    <%= button_to "Add to Cart", cart_items_path(:dish_id => @dish.id) %>
-    <%= button_to "Review Dish", new_review_path(:dish_id => @dish.id), method: :get %>
-    <%= button_to "Add to favourite" , favourite_dishes_path(:dish_id => @dish.id)%>
+    <%= button_to "Add to Cart", cart_items_path(dish_id: @dish.id) %>
+    <%= link_to "Review Dish", new_review_path(dish_id: @dish.id), method: :get %>
+    <%= link_to "Add to Favourite", new_favourite_dish_path(dish_id: @dish.id), method: :get %>
+
+     <%
+=begin%>
+ <%= button_to "Add to favourite" , favourite_dishes_path(dish_id: @dish.id)%>
+<%
+=end%>
 <% end %>
