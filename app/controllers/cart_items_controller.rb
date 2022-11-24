@@ -44,12 +44,12 @@ class CartItemsController < ApplicationController
 
     private
 
-        def set_cart_items
-            @cart_item = CartItem.find_by(id: params[:id])
-        end
+    def set_cart_items
+        @cart_item = CartItem.find_by(id: params[:id])
+    end
 
-        def cart_item_params
-            params.require(:cart_item).permit(:quantity,:dish_id, :cart_id)
-        end
+    def cart_item_params
+        params.require(:cart_item).permit(:quantity,:dish_id, :cart_id)
+    end
 
 end

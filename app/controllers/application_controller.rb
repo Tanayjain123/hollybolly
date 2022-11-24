@@ -1,12 +1,13 @@
 class ApplicationController < ActionController::Base
   #protect_from_forgery with: :exception
   respond_to :html, :json
-  
-  
+
+
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   before_action :current_cart
+  #,except: [:new, :create]
 
   def admin_only
     unless current_user.admin
@@ -18,19 +19,19 @@ class ApplicationController < ActionController::Base
 
   def current_cart
 
-      if session[:cart_id]
-          cart = Cart.find_by(:id => session[:cart_id])
-          if cart.present?
-              @current_cart = cart
-          else
+    if session[:cart_id]
+      cart = Cart.find_by(:id => session[:cart_id])
+        if cart.present?
+          @current_cart = cart
+        else
           session[:cart_id] = nil
-          end
-      end
+        end
+    end
+    if session[:cart_id] == nil
+      @current_cart = Cart.create(user_id: current_user.id)
+      session[:cart_id] = @current_cart.id
+    end
 
-      if session[:cart_id] == nil
-          @current_cart = Cart.create(user_id: current_user.id)
-          session[:cart_id] = @current_cart.id
-      end
   end
 
 
@@ -43,4 +44,5 @@ class ApplicationController < ActionController::Base
 
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :email, :contact, :address, :age, :gender, :password, :password_confirmation)}
   end
+
 end

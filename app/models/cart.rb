@@ -9,6 +9,6 @@ class Cart < ApplicationRecord
         sum += cart_item.total_amount
     end
     sum
-end
+  end
 
 end

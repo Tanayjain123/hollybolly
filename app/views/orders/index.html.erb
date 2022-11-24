@@ -2,16 +2,24 @@
 <p>Find me in app/views/orders/index.html.erb</p>
 <header class="break">
 <h2>All Orders</h2>
+
 </header>
-
-
+<table>
+<th>Order Date</th>
+<th>Name</th>
+<th>Order Items</th>
 <% @orders.each do |order| %>
-    <p>Name: <%= order.name %></p>
-    <p>Email: <%= order.email %></p>
-    <p>cart Items: </p>
+    <tr>
+    <td><%= order.created_at.strftime("%d/%m/%y") %></td>
+     <td><%= order.name %></td>
+    <td>
+
     <ul>
     <% order.cart_items.each do |dish| %>
-        <li><%= dish.quantity %> x <%= dish.dish.name %></li>
+        <li><%= dish.quantity %> x <%= dish.dish.name %>  <%= dish.quantity *  dish.dish.price %> ₹</li>
     <% end %>
     </ul>
+    </td>
+    </tr>
 <% end%>
+</table>

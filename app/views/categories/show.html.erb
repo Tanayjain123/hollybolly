@@ -2,6 +2,6 @@
 <%  @category.category_name %>
 <% @category.dishes.each do |dish| %>
     <p><%= link_to dish.name, category_dish_path(@category, dish) %></p>
-    <p><%= button_to "Add to Cart", cart_items_path(dish_id: dish.id) %> </p>   
+    <p><%= button_to "Add to Cart", cart_items_path(dish_id: dish.id) %> </p>
 <% end %>
 <%= render partial: 'links', locals: {category: @category} %>

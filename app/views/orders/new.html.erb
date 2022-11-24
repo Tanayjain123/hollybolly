@@ -1,6 +1,33 @@
 <header class="break">
 <h2>New Order</h2>
 </header>
+<% if @order.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@order.errors.count, "error") %> prohibited this article from being saved:</h2>
 
-<%= render partial: 'categories/errors', locals: {resource: @order} %>
-<%= render partial: 'form', locals: {order: @order} %>
+    <ul>
+    <% @order.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= form_for @order do |f| %>
+    <p>
+        <%= f.label :name %><br>
+        <%= f.text_field :name, required: true, autofocus: true %>
+    </p>
+    <p>
+        <%= f.label :email %><br>
+        <%= f.email_field :email %>
+    </p>
+    <p>
+        <%= f.label :address %><br>
+        <%= f.text_area :address %>
+    </p>
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %>
+
+

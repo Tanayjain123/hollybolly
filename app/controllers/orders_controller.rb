@@ -16,13 +16,15 @@ class OrdersController < ApplicationController
   def create
     @order = current_user.orders.new(order_params)
     @current_cart.cart_items.each do |item|
+      #pushing cart_items(item) into order
       @order.cart_items << item
       item.cart_id = nil
     end
     @order.save
     Cart.destroy(session[:cart_id])
     session[:cart_id] = nil
-    redirect_to homepage_home_path, notice: "You've successfully created an order!"
+    redirect_to homepage_home_path
+
   end
 
   private

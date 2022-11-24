@@ -22,6 +22,5 @@
 <h3>sub_total: <%= @cart.sub_total %>₹</h3>
 
 
-<%= button_to "Proceed to checkout", new_order_path, method: :get %><br>
-
+<%= button_to "Proceed to checkout", new_order_path, method: :get %>
 <%= button_to "Empty cart", cart_path(@current_cart), method: :delete, data: {confirm: "Are you sure?"} %>

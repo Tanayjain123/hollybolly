@@ -1,5 +1,31 @@
-<header class="break">
 <h2>Create a New Dish</h2>
-</header>
-<%= render partial: 'categories/errors', locals: {resource: @dish} %>
-<%= render partial: 'form', locals: {dish: @dish} %>
+<% if @dish.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@dish.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+    <ul>
+    <% @dish.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<%= form_for @dish do |f| %>
+
+    <label>Category:</label>
+    <%= f.collection_select :category_id, Category.all, :id, :category_name, include_blank: true%>
+    <br>
+    <label>Dish Name:</label>
+    <%= f.text_field :name, class: "field_with_errors" %>
+    <br>
+    <%= f.label :price %>
+    <%= f.number_field :price, value: number_to_currency(f.object.price.to_f, delimiter: '', unit: ''), step: :any %>
+    <br>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+    <br>
+    <%= f.submit %>
+
+<%end%>
