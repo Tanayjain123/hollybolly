@@ -1,5 +1,13 @@
 <h1>FavouriteDish#index</h1>
 <p>Find me in app/views/favourite_dish/index.html.erb</p>
-<%= link_to "Add favourite dish", new_favourite_dish_path %>
-
-
+<%= link_to "Add favourite dish", dishes_path %>
+<table>
+  <th>Fav Dish Category </th>
+  <th> dish name </th>
+    <% @favourite_dish.each do |favourite|%>
+       <tr>
+           <td> <%= favourite.dish.category.category_name %></td>
+           <td><%= favourite.dish.name %></td>
+        </tr>
+    <%end%>
+</table>

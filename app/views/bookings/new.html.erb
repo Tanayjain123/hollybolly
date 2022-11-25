@@ -4,30 +4,25 @@
     <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this article from being saved:</h2>
 
     <ul>
-    <% @booking.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
+      <% @booking.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
     </ul>
   </div>
 <% end %>
 
-
-
 <%= form_for [@user,@user.bookings.build]  do |form| %>
-
-<p>
+  <p>
     <%= form.label :no_of_people %><br>
-  <%=  form.number_field :no_of_people %>
+    <%=  form.number_field :no_of_people %>
   </p>
-
   <p>
     <%= form.label :occassion %><br>
-   <%= form.text_field :occassion %>
+    <%= form.text_field :occassion %>
   </p>
-
   <p>
-     <%= form.label :date %>
-     <%= form.datetime_local_field :date %>
+    <%= form.label :date %>
+    <%= form.datetime_local_field :date %>
   </p>
 
   <p>

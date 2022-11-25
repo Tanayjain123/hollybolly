@@ -1,25 +1,27 @@
-<h1>Orders#index</h1>
-<p>Find me in app/views/orders/index.html.erb</p>
-<header class="break">
 <h2>All Orders</h2>
+<table class="table">
+  <th> Order Number </th>
+  <th>Order Date</th>
+  <th>Name</th>
+  <th>Dilivery address </th>
+  <th>Order Items</th>
+  <th>Order Total </th>
 
-</header>
-<table>
-<th>Order Date</th>
-<th>Name</th>
-<th>Order Items</th>
-<% @orders.each do |order| %>
-    <tr>
-    <td><%= order.created_at.strftime("%d/%m/%y") %></td>
-     <td><%= order.name %></td>
-    <td>
+  <% @orders.each do |order| %>
+     <tr class="tr">
+        <td><%= order.id %></td>
+        <td><%= order.created_at.strftime("%d/%m/%y") %></td>
+        <td><%= order.name %></td>
+        <td><%= order.address %></td>
+        <td>
+          <ul>
+            <% order.cart_items.each do |dish| %>
+               <li><%= dish.quantity %> x <%= dish.dish.name %>  <%= dish.quantity *  dish.dish.price %> ₹</li>
 
-    <ul>
-    <% order.cart_items.each do |dish| %>
-        <li><%= dish.quantity %> x <%= dish.dish.name %>  <%= dish.quantity *  dish.dish.price %> ₹</li>
-    <% end %>
-    </ul>
-    </td>
+            <% end %>
+          </ul>
+        </td>
+        <td><%= order.total %>₹</td>
     </tr>
-<% end%>
+  <% end%>
 </table>

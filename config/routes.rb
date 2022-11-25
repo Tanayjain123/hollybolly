@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'favourite_dish/index'
+  #get 'favourite_dish/index'
 
   get 'homepage/home'
   get 'carts/:id' => "carts#show", as: "cart"

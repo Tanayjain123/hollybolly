@@ -1,28 +1,33 @@
-<div class= "hcafe"><h1>Welcome to Holly Bolly Cafe </h1></div>
-
+<div class= "hcafe">
+  <h1>Welcome to Holly Bolly Cafe </h1>
+</div>
 <nav class = "navbar">
-<ul>
-<li>
-<%= link_to 'Category' , categories_path %>
-</li>
-<li>
-<%= link_to 'Dishes' , dishes_path(@category) %>
-</li>
-<li>
-<%= link_to 'Book a table' ,user_bookings_path(@user) %>
-</li>
-<li>
-<%= link_to 'Review' , dishes_path  %>
-</li>
-<li>
-<%= link_to 'Cart' , cart_path(@user) %>
-</li>
-<li>
-<%= link_to 'Order History' , orders_path %>
-</li>
-<li>
-<%= link_to 'Add favourite dish' , dishes_path %>
-</li>
-<li> <%= link_to "show my review" , reviews_path(@review)%>
-</ul>
+  <ul>
+    <li>
+       <%= link_to 'Category' , categories_path %>
+    </li>
+    <li>
+       <%= link_to 'Dishes' , dishes_path(@category) %>
+    </li>
+    <li>
+       <%= link_to 'Book a table' ,user_bookings_path(@user) %>
+    </li>
+    <li>
+       <%= link_to 'Review' , dishes_path  %>
+    </li>
+    <li>
+       <%= link_to 'Cart' , cart_path(@user) %>
+    </li>
+    <li>
+       <%= link_to 'Order History' , orders_path %>
+    </li>
+    <li>
+       <%= link_to 'Add favourite dish' , dishes_path %>
+    </li>
+    <li>
+       <%= link_to 'My all Review' ,  reviews_path(@review) %>
+    </li>
+    <li>
+        <%= link_to 'show my favourite dishes' , favourite_dishes_path(@favourite_dish) %>
+    </li>
 </nav>

@@ -1,4 +1,20 @@
 <h1>Reviews#index</h1>
 <p>Find me in app/views/reviews/index.html.erb</p>
-<%= link_to "Review", new_review_path %>
-# <%= link_to "show my reviews" , reviews_path%>
+<%= link_to "Add New Review",  dishes_path %>
+<table>
+   <th>Dish Name</th>
+   <th>User Review </th>
+   <th> Review rating </th>
+    <% @review.each do |review|%>
+        <tr>
+          <td><%= review.dish.name %></td>
+          <td><%= review.review %></td>
+          <td><%= review.rating %></td>
+         </tr>
+    <%end%>
+</table>
+<%
+=begin%>
+ <%= link_to "show my reviews" , reviews_path%>
+<%
+=end%>

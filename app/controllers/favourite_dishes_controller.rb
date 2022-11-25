@@ -7,8 +7,7 @@ class FavouriteDishesController < ApplicationController
     @favourite_dish = FavouriteDish.new
   end
   def create
-
-    @favourite_dish=FavouriteDish.create(favourite_dish_params)
+   @favourite_dish=FavouriteDish.create(favourite_dish_params)
     if @favourite_dish.save
       redirect_to homepage_home_path(@favourite_dish)
     else
@@ -16,10 +15,10 @@ class FavouriteDishesController < ApplicationController
     end
   end
 
-
-
   private
-   def favourite_dish_params
+
+  def favourite_dish_params
     params.require(:favourite_dish).permit(:user_id,:dish_id)
   end
+
 end

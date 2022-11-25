@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .navbar{
-    background-color: darkslategray;
+    background-color:  #374242;
     border-radius: 1px;
   }
   .navbar li{
@@ -23,12 +23,15 @@
 }
 .hcafe{
     text-align: center;
-    background-color: darkslategrey;
+    background-color:  #374242;
     padding-top: 2px;
     padding-bottom: 2px;
-   #margin-bottom: 5px;
-   color: white;
+      color: white;
 }
 h1 {
     color: white;
  }
+html {
+    background-color: grey;
+
+}
