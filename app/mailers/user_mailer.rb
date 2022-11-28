@@ -1,6 +1,7 @@
 class UserMailer < ApplicationMailer
-  def welcome_email(user)
-      @user = user
-      mail(to: @user.email, subject: 'Welcome to Holly Bolly Cafe ')
+  default from: 'tjtanay6@gmail.com'
+  def welcome_email(resource)
+      @resource = params[:resource]
+      mail(to: @resource.email, subject: 'Welcome to Holly Bolly Cafe ')
     end
   end

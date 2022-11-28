@@ -1,10 +1,10 @@
 class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
-  has_many :favourite_dishes
-  has_many :bookings
-  has_one :cart
-  has_many :orders
-  has_many :dinning_tables, through: :bookings
+  has_many :favourite_dishes, dependent: :destroy
+  has_many :bookings, dependent: :destroy
+  has_one :cart, dependent: :destroy
+  has_many :orders,dependent: :destroy
+  has_many :dinning_tables, through: :bookings, dependent: :destroy
   # has_many :products, through: :cart
   # has_many :products, through: :orders
   #enum role: {user: 0, admin: 1 }
@@ -22,6 +22,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   # devise :registerable,
   #        :recoverable, :rememberable, :validatable
+
+  def say_hello
+    "Hello World!"
+ end
 
 end
 

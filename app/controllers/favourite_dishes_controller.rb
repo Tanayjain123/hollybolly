@@ -7,7 +7,7 @@ class FavouriteDishesController < ApplicationController
     @favourite_dish = FavouriteDish.new
   end
   def create
-   @favourite_dish=FavouriteDish.create(favourite_dish_params)
+    @favourite_dish=FavouriteDish.create(favourite_dish_params)
     if @favourite_dish.save
       redirect_to homepage_home_path(@favourite_dish)
     else

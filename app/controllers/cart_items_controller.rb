@@ -13,7 +13,7 @@ class CartItemsController < ApplicationController
         # Iterate the cart_item's quantity by one
         @cart_item.quantity += 1
       else
-        cart_item = CartItem.new
+        @cart_item = CartItem.new
         @cart_item.cart = current_cart
         @cart_item.dish = chosen_item
        end

@@ -1,3 +1,22 @@
 <h1>Bookings#index</h1>
 <p>Find me in app/views/bookings/index.html.erb</p>
 <%= link_to 'book a table', new_user_booking_path %>
+<table class="table">
+  <th> Booking Number </th>
+  <th>Booking Date</th>
+  <th>Occasion</th>
+  <th>Guest Count</th>
+  <th>booked On </th>
+
+<% @booking.each do |book| %>
+    <tr class="tr">
+        <td><%= book.id %></td>
+        <td><%= book.date.strftime("%d/%m/%y") %></td>
+        <td><%= book.occassion %></td>
+        <td><%= book.no_of_people %></td>
+        <td><%= book.created_at.strftime("%d/%m/%y")%></td>
+    </tr>
+<% end%>
+</table>
+<br>
+<%= link_to "Back To Home Page", homepage_home_path %>

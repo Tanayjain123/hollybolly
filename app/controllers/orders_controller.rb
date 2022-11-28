@@ -2,7 +2,9 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @orders = Order.all
+    #@orders = Order.all
+    @user= current_user
+    @orders = @user.orders.all
   end
 
   def show

@@ -5,3 +5,5 @@
     <p><%= button_to "Add to Cart", cart_items_path(dish_id: dish.id) %> </p>
 <% end %>
 <%= render partial: 'links', locals: {category: @category} %>
+
+<%= link_to "Back To Home Page", homepage_home_path %>

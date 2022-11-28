@@ -1,4 +1,13 @@
 <h1>show of booking</h1>
-<%= @booking.date %>
-<%= @booking.occassion %>
-<%= @booking.no_of_people %>
+<table>
+<th>date of booking</th>
+<th>occassion of booking</th>
+<th>Number of Guest invited</th>
+<tr>
+
+<td><%= @booking.date.strftime("%d/%m/%y")%></td>
+<td><%= @booking.occassion %></td>
+<td><%= @booking.no_of_people %></td>
+</table>
+
+<%= link_to "Back To Home Page", homepage_home_path %>

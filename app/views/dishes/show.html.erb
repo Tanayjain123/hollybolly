@@ -10,10 +10,6 @@
     <%= button_to "Add to Cart", cart_items_path(dish_id: @dish.id) %>
     <%= link_to "Review Dish", new_review_path(dish_id: @dish.id), method: :get %>
     <%= link_to "Add to Favourite", new_favourite_dish_path(dish_id: @dish.id), method: :get %>
-
-    <%
-    =begin%>
-       <%= button_to "Add to favourite" , favourite_dishes_path(dish_id: @dish.id)%>
-    <%
-    =end%>
 <% end %>
+<br>
+<%= link_to "Back To Home Page", homepage_home_path %>

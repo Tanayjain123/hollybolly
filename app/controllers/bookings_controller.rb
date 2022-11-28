@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   def index
-    @booking = Booking.all
+    @user = current_user
+    @booking = @user.bookings.all
   end
   def new
     @user=User.find(params[:user_id])

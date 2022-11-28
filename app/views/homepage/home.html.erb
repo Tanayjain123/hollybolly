@@ -10,7 +10,7 @@
        <%= link_to 'Dishes' , dishes_path(@category) %>
     </li>
     <li>
-       <%= link_to 'Book a table' ,user_bookings_path(@user) %>
+       <%= link_to 'Booking Counter' ,new_user_booking_path(@user) %>
     </li>
     <li>
        <%= link_to 'Review' , dishes_path  %>
@@ -30,4 +30,7 @@
     <li>
         <%= link_to 'show my favourite dishes' , favourite_dishes_path(@favourite_dish) %>
     </li>
+    <li>
+    <%= link_to 'My Bookings' , user_bookings_path(@user)%>
 </nav>
+
